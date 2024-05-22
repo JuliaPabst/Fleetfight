@@ -10,7 +10,7 @@ public:
     void setShip(int index, Ship ship);
 private:
     std::vector<Ship> ships_;
-    int playerNumber_
+    int playerNumber_;
 
 };
 

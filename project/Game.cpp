@@ -18,7 +18,13 @@ void Game::playGame(){
     for(int i = 0; i < numberOfPlayers_; i++){
         std::cout << "Player " << i << " it's your turn to choose what kind of ships you want!" << std::endl;
         for(int j = 0; j < numberOfShips_; j++){
-            players_[i].
+            int chosenShip = 0;
+            std::cout << "Which ship is your ship number " << j << "? (1 = destroyer, 2 = cruiser, 3 = hunter)" << std::endl;
+            std::cin >> chosenShip;
+            if(chosenShip == 1){
+                Destroyer destroyer();
+            }
+            players_[i].setShip();
         }
     }
 

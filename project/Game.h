@@ -3,11 +3,9 @@
 #include <string>
 #include <iostream>
 #include "Player.h"
-
-
-enum class ShipType {
-    destroyer, cruiser, hunter
-};
+#include "Destroyer.h"
+#include "Cruiser.h"
+#include "Hunter.h"
 
 class Game {
 public:

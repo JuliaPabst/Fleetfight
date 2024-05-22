@@ -2,9 +2,9 @@
 #define PROJECT_CRUISER_H
 #include "Ship.h"
 
-class Cruiser : Ship {
+class Cruiser : public Ship {
 public:
-    Cruiser(ShipType type, int stealth, int size, std::string specialName);
+    Cruiser() : type_(cruiser),  stealth_(250), size_ (8), damage_(50), specialName_("Bombardement");
 private:
     void special() const override;
 };

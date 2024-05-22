@@ -2,9 +2,9 @@
 #define PROJECT_HUNTER_H
 #include "Ship.h"
 
-class Hunter : Ship {
+class Hunter : public Ship {
 public:
-    Hunter(ShipType type, int stealth, int size, std::string specialName);
+    Hunter() : type_(hunter),  stealth_(75), size_ (4), damage_(30), specialName_("Kritische Treffer");;
 private:
     void special() const override;
 };
