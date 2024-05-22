@@ -1,12 +1,14 @@
 #ifndef PROJECT_PLAYER_H
 #define PROJECT_PLAYER_H
-#include "Ships.h"
+#include "Ship.h"
 
 
 class Player {
 public:
+    void setLengthOfShipsVector();
+    void setPlayerNumber();
 private:
-    vector<Ship> ships_;
+    std::vector<Ship> ships_;
     int playerNumber_
 
 };
