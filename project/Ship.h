@@ -1,6 +1,7 @@
 #ifndef PROJECT_SHIP_H
 #define PROJECT_SHIP_H
 #include "Game.h"
+#include <string>
 
 
 class Ship {
