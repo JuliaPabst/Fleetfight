@@ -1,6 +1,8 @@
 #ifndef PROJECT_GAME_H
 #define PROJECT_GAME_H
-#include <string.h>
+#include <string>
+#include <iostream>
+#include "Player.h"
 
 
 enum class ShipType {
@@ -10,12 +12,14 @@ enum class ShipType {
 class Game {
 public:
     Game();
-    void chooseShip();
-
-private:
     void playGame();
 
-    std::vector<std::string> types;
+private:
+    void chooseShips();
+    std::vector<std::string> types_;
+    std::vector<Player> players_;
+    int numberOfShips_;
+    int numberOfPlayers_ = 2;
 };
 
 
