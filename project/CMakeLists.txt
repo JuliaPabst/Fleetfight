@@ -10,4 +10,5 @@ add_executable(project main.cpp
         Hunter.cpp
         Cruiser.h
         Game.cpp
+        Player.cpp
 )

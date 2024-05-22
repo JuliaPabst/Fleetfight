@@ -67,6 +67,12 @@ build CMakeFiles/project.dir/Game.cpp.o: CXX_COMPILER__project_unscanned_Debug /
   OBJECT_DIR = CMakeFiles/project.dir
   OBJECT_FILE_DIR = CMakeFiles/project.dir
 
+build CMakeFiles/project.dir/Player.cpp.o: CXX_COMPILER__project_unscanned_Debug /Users/julia/Desktop/Knowledge_Centre/FH_Technikum/Semester2/Objektorientiertes_Programmieren/Fleetfight/project/Player.cpp || cmake_object_order_depends_target_project
+  DEP_FILE = CMakeFiles/project.dir/Player.cpp.o.d
+  FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/project.dir
+  OBJECT_FILE_DIR = CMakeFiles/project.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target project
@@ -75,7 +81,7 @@ build CMakeFiles/project.dir/Game.cpp.o: CXX_COMPILER__project_unscanned_Debug /
 #############################################
 # Link the executable project
 
-build project: CXX_EXECUTABLE_LINKER__project_Debug CMakeFiles/project.dir/main.cpp.o CMakeFiles/project.dir/Hunter.cpp.o CMakeFiles/project.dir/Game.cpp.o
+build project: CXX_EXECUTABLE_LINKER__project_Debug CMakeFiles/project.dir/main.cpp.o CMakeFiles/project.dir/Hunter.cpp.o CMakeFiles/project.dir/Game.cpp.o CMakeFiles/project.dir/Player.cpp.o
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk
   OBJECT_DIR = CMakeFiles/project.dir
   POST_BUILD = :

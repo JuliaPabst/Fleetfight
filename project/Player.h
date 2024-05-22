@@ -5,8 +5,9 @@
 
 class Player {
 public:
-    void setLengthOfShipsVector();
-    void setPlayerNumber();
+    void setLengthOfShipsVector(int length);
+    void setPlayerNumber(int number);
+    void setShip(int index, Ship ship);
 private:
     std::vector<Ship> ships_;
     int playerNumber_
