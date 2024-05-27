@@ -1,11 +1,11 @@
 #include "Destroyer.h"
 
-Destroyer::Destroyer()
-{
-    //ctor
-}
 
 Destroyer::~Destroyer()
 {
     //dtor
+}
+
+void Destroyer::special()const {
+    printf("hi");
 }

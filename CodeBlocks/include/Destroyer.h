@@ -1,16 +1,14 @@
 #ifndef DESTROYER_H
 #define DESTROYER_H
 
+#include "Ship.h"
 
-class Destroyer
-{
-    public:
-        Destroyer();
-        virtual ~Destroyer();
-
-    protected:
-
-    private:
+class Destroyer : public Ship {
+public:
+    Destroyer() : Ship(destroyer, 150, 6, 60, "Zielsuchend") {}
+    virtual ~Destroyer();
+private:
+    void special() const override;
 };
 
 #endif // DESTROYER_H
