@@ -28,6 +28,10 @@ Game::~Game()
     }
 }
 
+void Game::clearScreen() {
+    system("cls");
+}
+
 std::vector<std::string> Game::getTypes(){
     return types_;
 }
@@ -41,8 +45,7 @@ void Game::playGame(){
 
     chooseShips();
 
-    players_[0]->printChosenShips(*this);
-    players_[1]->printChosenShips(*this);
+    printChosenShips();
 }
 
 void Game::choseNumberOfShips(){
@@ -52,12 +55,11 @@ void Game::choseNumberOfShips(){
     for(int i = 0; i < numberOfPlayers_; i++){
         players_[i]->setLengthOfShipsVector(numberOfShips_);
     }
-
 }
 
 void Game::chooseShips(){
     for(int i = 0; i < numberOfPlayers_; i++){
-        std::cout << "Player " << i << ", it's your turn to choose what kind of ships you want!" << std::endl;
+        std::cout << "Player " << i + 1 << ", it's your turn to choose what kind of ships you want!" << std::endl;
         for(int j = 0; j < numberOfShips_; j++){
             int chosenShip = 0;
             while (chosenShip != 1 && chosenShip != 2 && chosenShip != 3){
@@ -87,4 +89,13 @@ void Game::chooseShips(){
             }
         }
     }
+}
+
+void Game::printChosenShips(){
+    clearScreen();
+
+    std::cout << "You chose these ships: " << std::endl;
+
+    players_[0]->printChosenShips(*this);
+    players_[1]->printChosenShips(*this);
 }
