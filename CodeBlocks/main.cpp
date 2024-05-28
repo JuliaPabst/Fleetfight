@@ -1,13 +1,13 @@
 #include <iostream>
 #include "Cruiser.h"
 #include "Destroyer.h"
+#include "Game.h"
 
 using namespace std;
 
 int main()
 {
-    Cruiser mycruiser();
-    Destroyer mydestroyer();
-    cout << "Hello world!" << endl;
+    Game game;
+    game.playGame();
     return 0;
 }

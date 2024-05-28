@@ -17,6 +17,7 @@ public:
 
 private:
     void chooseShips();
+    void choseNumberOfShips();
     std::vector<std::string> types_;
     std::vector<Player*> players_;
     int numberOfShips_;
