@@ -13,6 +13,7 @@ public:
     Ship(ShipType type, int stealth, int size, int damage, std::string specialName);
     virtual ~Ship();
     virtual void special() const = 0;
+    ShipType getShipType();
 
 private:
     ShipType type_;

@@ -14,6 +14,7 @@ public:
     Game();
     virtual ~Game();
     void playGame();
+    std::vector<std::string> getTypes();
 
 private:
     void chooseShips();

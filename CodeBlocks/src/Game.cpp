@@ -6,6 +6,9 @@
 Game::Game()
 {
     players_.resize(numberOfPlayers_);
+    types_[0] = "Destroyer";
+    types_[1] = "Cruiser";
+    types_[2] = "Hunter";
 }
 
 Game::~Game()
@@ -13,6 +16,10 @@ Game::~Game()
     for(int i = 0; i < numberOfPlayers_; i++){
         delete players_[i];
     }
+}
+
+std::vector<std::string> Game::getTypes(){
+    return types_;
 }
 
 void Game::playGame(){
@@ -23,6 +30,9 @@ void Game::playGame(){
     std::cout << "Great, you chose " << numberOfShips_ << "ships!" << std::endl;
 
     chooseShips();
+
+    players_[0]->printChosenShips(*this);
+    players_[1]->printChosenShips(*this);
 }
 
 void Game::choseNumberOfShips(){

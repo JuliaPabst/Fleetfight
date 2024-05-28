@@ -9,3 +9,7 @@ Ship::Ship(ShipType type, int stealth, int size, int damage, std::string special
 }
 
 Ship::~Ship(){}
+
+ShipType Ship::getShipType(){
+    return type_;
+}
