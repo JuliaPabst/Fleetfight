@@ -3,9 +3,19 @@
 #include "Game.h"
 #include "Player.h"
 
-Game::Game()
-{
+Game::Game(){
+    numberOfPlayers_ = 2;
+    numberOfTypes_ = 3;
+
     players_.resize(numberOfPlayers_);
+    types_.resize(numberOfTypes_);
+
+    for(int i = 0; i < numberOfPlayers_; i++){
+        players_[i] = new Player();
+        players_[i]->setPlayerNumber(i + 1);
+        players_[i]->setLengthOfShipsVector(numberOfShips_);
+    }
+
     types_[0] = "Destroyer";
     types_[1] = "Cruiser";
     types_[2] = "Hunter";
@@ -27,7 +37,7 @@ void Game::playGame(){
 
     choseNumberOfShips();
 
-    std::cout << "Great, you chose " << numberOfShips_ << "ships!" << std::endl;
+    std::cout << "Great, you chose " << numberOfShips_ << " ship(s)!" << std::endl;
 
     chooseShips();
 
@@ -40,8 +50,6 @@ void Game::choseNumberOfShips(){
     std::cin >> numberOfShips_;
 
     for(int i = 0; i < numberOfPlayers_; i++){
-        players_[i] = new Player();
-        players_[i]->setPlayerNumber(i + 1);
         players_[i]->setLengthOfShipsVector(numberOfShips_);
     }
 
@@ -53,7 +61,7 @@ void Game::chooseShips(){
         for(int j = 0; j < numberOfShips_; j++){
             int chosenShip = 0;
             while (chosenShip != 1 && chosenShip != 2 && chosenShip != 3){
-                std::cout << "Which ship is your ship number " << j << "? (1 = destroyer, 2 = cruiser, 3 = hunter)" << std::endl;
+                std::cout << "Which ship is your ship number " << j + 1 << "? (1 = destroyer, 2 = cruiser, 3 = hunter)" << std::endl;
                 std::cin >> chosenShip;
                 switch(chosenShip){
                     case 1: {

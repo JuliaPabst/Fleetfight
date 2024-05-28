@@ -22,7 +22,8 @@ private:
     std::vector<std::string> types_;
     std::vector<Player*> players_;
     int numberOfShips_;
-    int numberOfPlayers_ = 2;
+    int numberOfTypes_;
+    int numberOfPlayers_;
 };
 
 #endif // GAME_H
