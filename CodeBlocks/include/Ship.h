@@ -16,8 +16,10 @@ public:
     int getStealth();
     int getSize();
     int getDamage();
+    std::string getSpecialName();
     void beAttacked(Ship* attacker);
-    virtual void special() const = 0;
+    // how bad that it is not const?
+    virtual void special(Ship* attackedShip) = 0;
 
 private:
     ShipType type_;

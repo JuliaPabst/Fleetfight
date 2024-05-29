@@ -8,7 +8,7 @@ public:
     Destroyer() : Ship(destroyer, 150, 6, 60, "Zielsuchend") {}
     virtual ~Destroyer();
 private:
-    void special() const override;
+    void special(Ship* attackedShip) override;
 };
 
 #endif // DESTROYER_H

@@ -26,6 +26,10 @@ int Ship::getDamage(){
     return damage_;
 }
 
+std::string Ship::getSpecialName(){
+    return specialName_;
+}
+
 void Ship::beAttacked(Ship* attacker){
     stealth_ -= attacker->getDamage();
 }

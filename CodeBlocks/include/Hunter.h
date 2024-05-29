@@ -8,7 +8,7 @@ public:
     Hunter() : Ship(hunter, 75, 4, 30, "Kritische Treffer"){}
     virtual ~Hunter();
 private:
-    void special() const override;
+    void special(Ship* attackedShip) override;
 };
 
 #endif // HUNTER_H
