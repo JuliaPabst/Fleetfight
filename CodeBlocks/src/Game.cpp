@@ -101,11 +101,20 @@ void Game::printChosenShips(){
 }
 
 void Game::fight(){
-    while(!players_[0]->checkIfHasLost && !players_[0]->checkIfHasLost){
-
+    int currentPlayer = 0;
+    while(!players_[0]->checkIfHasLost() && !players_[0]->checkIfHasLost()){
+        currentPlayer = currentPlayer % 2;
+        attack(currentPlayer);
+        currentPlayer++;
     }
 
 }
 
-void Game::attack(){
+void Game::attack(int currentPlayer){
+    if(currentPlayer == 0){
+        int attackedPlayer = 1;
+    } else {
+        int attackedPlayer = 0;
+    }
+
 }
