@@ -119,20 +119,16 @@ void Game::aimAndShoot(Ship* attackingShip, Ship* attackedShip){
     int dice = (rand() % 10) + 1;
 
     if((dice >= attackedShip->getSize()) || (attackingShip->getShipType() == destroyer && (dice + 2) >= attackedShip->getSize())){
-        std::cout << "stealth of attacked Ship before attack: " << attackedShip->getStealth() << std::endl;
-
         if(attackingShip->getShipType() == hunter && dice >= 9){
             attackingShip->special(attackedShip);
         } else if (attackingShip->getShipType() == cruiser){
-            aimAndShoot(attackingShip, attackedShip);
             attackingShip->special(attackedShip);
         } else if (attackingShip->getShipType() == destroyer){
             attackingShip->special(attackedShip);
         } else {
             attackedShip->beAttacked(attackingShip);
+            std::cout << "You hit the other ship!" << std::endl;
         }
-
-        std::cout << "stealth of attacked Ship after attack: " << attackedShip->getStealth() << std::endl;
     } else {
         std::cout << "You missed the other ship!" << std::endl;
     }

@@ -9,5 +9,16 @@ Cruiser::~Cruiser()
 }
 
 void Cruiser::special(Ship* attackedShip) {
-    std::cout << "The attacking hunter ship executed the special attack " << this->getSpecialName() << std::endl;
+    attackedShip->beAttacked(this);
+    std::cout << "The attacking cruiser ship executed the special attack " << this->getSpecialName() << std::endl;
+
+    int dice = (rand() % 10) + 1;
+
+     if(dice >= attackedShip->getSize()){
+        special(attackedShip);
+    } else {
+        return;
+        std::cout << "You missed the other ship!" << std::endl;
+    }
+
 }

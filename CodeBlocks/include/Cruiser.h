@@ -11,6 +11,7 @@ public:
     void special(Ship* attackedShip) override;
 private:
 
+
 };
 
 #endif // CRUISER_H
