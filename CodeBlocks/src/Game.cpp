@@ -117,4 +117,9 @@ void Game::attack(int currentPlayer){
         int attackedPlayer = 0;
     }
 
+    Ship* attackingShip = nullptr;
+
+    while(attackingShip == nullptr){
+        attackingShip =
+    }
 }
