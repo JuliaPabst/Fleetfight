@@ -100,17 +100,30 @@ void Game::printChosenShips(){
     players_[1]->printChosenShips(*this);
 }
 
+void Game::printPlayingShip(int currentPlayer, int shipIndex){
+    std::cout << "You chose these ships: " << std::endl;
+
+    players_[currentPlayer]->printSingleShip(shipIndex, *this);
+}
+
 void Game::fight(){
     int currentPlayer = 0;
-    while(!players_[0]->checkIfHasLost() && !players_[0]->checkIfHasLost()){
+    attack(currentPlayer);
+    attack(currentPlayer);
+    attack(currentPlayer);
+
+    /*while(!players_[0]->checkIfHasLost() && !players_[0]->checkIfHasLost()){
         currentPlayer = currentPlayer % 2;
         attack(currentPlayer);
         currentPlayer++;
     }
+    */
 
 }
 
 void Game::attack(int currentPlayer){
+    int attackingShipIndex = 0;
+
     if(currentPlayer == 0){
         int attackedPlayer = 1;
     } else {
@@ -120,6 +133,10 @@ void Game::attack(int currentPlayer){
     Ship* attackingShip = nullptr;
 
     while(attackingShip == nullptr){
-        attackingShip =
+        attackingShipIndex = rand() % numberOfShips_;
+        attackingShip = players_[currentPlayer]->getShip(attackingShipIndex);
     }
+
+
+    printPlayingShip(currentPlayer, attackingShipIndex);
 }

@@ -13,6 +13,10 @@ Player::~Player()
     }
 }
 
+Ship* Player::getShip(int index){
+    return ships_[index];
+}
+
 void Player::setLengthOfShipsVector(int length){
     ships_.resize(length);
 }
@@ -34,6 +38,10 @@ void Player::printChosenShips(Game& game){
     for (Ship* ship : ships_){
         std::cout << game.getTypes()[ship->getShipType()] << std::endl;
     }
+}
+
+void Player::printSingleShip(int index, Game& game){
+    std::cout << game.getTypes()[ships_[index]->getShipType()] << std::endl;
 }
 
 bool Player::checkIfHasLost(){
