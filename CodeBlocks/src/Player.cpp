@@ -35,3 +35,12 @@ void Player::printChosenShips(Game& game){
         std::cout << game.getTypes()[ship->getShipType()] << std::endl;
     }
 }
+
+bool Player::checkIfHasLost(){
+    for(Ship* ship : ships_){
+        if(ship != nullptr){
+            return false;
+        }
+    }
+    return true;
+}

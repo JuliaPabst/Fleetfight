@@ -101,6 +101,9 @@ void Game::printChosenShips(){
 }
 
 void Game::fight(){
+    while(!players_[0]->checkIfHasLost && !players_[0]->checkIfHasLost){
+
+    }
 
 }
 
