@@ -8,9 +8,6 @@ Player::Player()
 
 Player::~Player()
 {
-    for(Ship* ship : ships_){
-        delete ship;
-    }
 }
 
 Ship* Player::getShip(int index){
@@ -50,5 +47,13 @@ bool Player::checkIfHasLost(){
             return false;
         }
     }
+
+    std::cout << "Player " << playerNumber_ << " you have lost!" << std::endl;
     return true;
+}
+
+void Player::sinkShip(int attackedShipIndex){
+    Ship* attackedShip = ships_[attackedShipIndex];
+    delete attackedShip;
+    ships_[attackedShipIndex] = nullptr;
 }

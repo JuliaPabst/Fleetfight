@@ -26,6 +26,7 @@ private:
     void fight();
     void attack(int currentPlayer);
     void aimAndShoot(Ship* attackingShip, Ship* attackedShip);
+    void sinkShipIfStealthIsNegative(int attackedShipIndex, Ship* attackedShip, int attackedPlayer);
     std::vector<std::string> types_;
     std::vector<Player*> players_;
     int numberOfShips_;

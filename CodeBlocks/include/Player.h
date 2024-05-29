@@ -23,6 +23,7 @@ public:
     void printChosenShips(Game& game);
     void printSingleShip(int index, Game& game);
     bool checkIfHasLost();
+    void sinkShip(int attackedShipIndex);
 private:
     std::vector<Ship*> ships_;
     int playerNumber_;

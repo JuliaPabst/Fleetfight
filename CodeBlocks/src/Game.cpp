@@ -100,6 +100,8 @@ void Game::printChosenShips(){
 
     players_[0]->printChosenShips(*this);
     players_[1]->printChosenShips(*this);
+
+    std::cout << " " << std::endl;
 }
 
 void Game::printPlayingShip(int currentPlayer, int shipIndex){
@@ -117,31 +119,28 @@ void Game::aimAndShoot(Ship* attackingShip, Ship* attackedShip){
     int dice = (rand() % 10) + 1;
 
     if(dice >= attackedShip->getSize()){
-        std::cout << "stealth before attack: " << attackedShip->getStealth() << std::endl;
+        std::cout << "stealth of attacked Ship before attack: " << attackedShip->getStealth() << std::endl;
         attackedShip->beAttacked(attackingShip);
-        std::cout << "stealth after attack: " << attackedShip->getStealth() << std::endl;
+        std::cout << "stealth of attacked Ship after attack: " << attackedShip->getStealth() << std::endl;
     } else {
         std::cout << "You missed the other ship!" << std::endl;
     }
 }
 
-void sinkShipIfStealthIsNegative(int attackedShipIndex, Ship* attackedShip){
-
+void Game::sinkShipIfStealthIsNegative(int attackedShipIndex, Ship* attackedShip, int attackedPlayer){
+    if(attackedShip->getStealth() <= 0){
+        players_[attackedPlayer]->sinkShip(attackedShipIndex);
+    }
 }
 
 void Game::fight(){
     int currentPlayer = 0;
-    attack(currentPlayer);
-    currentPlayer++;
-    attack(currentPlayer);
 
-    /*while(!players_[0]->checkIfHasLost() && !players_[0]->checkIfHasLost()){
+    while(!players_[0]->checkIfHasLost() && !players_[1]->checkIfHasLost()){
         currentPlayer = currentPlayer % 2;
         attack(currentPlayer);
         currentPlayer++;
     }
-    */
-
 }
 
 
@@ -167,5 +166,7 @@ void Game::attack(int currentPlayer){
     printPlayingShip(attackedPlayer, attackedShipIndex);
 
     aimAndShoot(attackingShip, attackedShip);
-    sinkShipIfStealthIsNegative(attackedShipIndex, attackedShip);
+    sinkShipIfStealthIsNegative(attackedShipIndex, attackedShip, attackedPlayer);
+
+    std::cout << " " << std::endl;
 }
