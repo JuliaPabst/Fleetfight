@@ -46,6 +46,8 @@ void Game::playGame(){
     chooseShips();
 
     printChosenShips();
+
+    fight();
 }
 
 void Game::choseNumberOfShips(){
@@ -101,15 +103,36 @@ void Game::printChosenShips(){
 }
 
 void Game::printPlayingShip(int currentPlayer, int shipIndex){
-    std::cout << "You chose these ships: " << std::endl;
-
     players_[currentPlayer]->printSingleShip(shipIndex, *this);
+}
+
+void Game::chooseShipForAttack(int player, int& shipIndex, Ship*& ship){
+    while(ship == nullptr){
+        shipIndex = rand() % numberOfShips_;
+        ship = players_[player]->getShip(shipIndex);
+    }
+}
+
+void Game::aimAndShoot(Ship* attackingShip, Ship* attackedShip){
+    int dice = (rand() % 10) + 1;
+
+    if(dice >= attackedShip->getSize()){
+        std::cout << "stealth before attack: " << attackedShip->getStealth() << std::endl;
+        attackedShip->beAttacked(attackingShip);
+        std::cout << "stealth after attack: " << attackedShip->getStealth() << std::endl;
+    } else {
+        std::cout << "You missed the other ship!" << std::endl;
+    }
+}
+
+void sinkShipIfStealthIsNegative(int attackedShipIndex, Ship* attackedShip){
+
 }
 
 void Game::fight(){
     int currentPlayer = 0;
     attack(currentPlayer);
-    attack(currentPlayer);
+    currentPlayer++;
     attack(currentPlayer);
 
     /*while(!players_[0]->checkIfHasLost() && !players_[0]->checkIfHasLost()){
@@ -121,22 +144,28 @@ void Game::fight(){
 
 }
 
+
 void Game::attack(int currentPlayer){
     int attackingShipIndex = 0;
+    int attackedShipIndex = 0;
+    Ship* attackingShip = nullptr;
+    Ship* attackedShip = nullptr;
+    int attackedPlayer = 0;
 
     if(currentPlayer == 0){
-        int attackedPlayer = 1;
-    } else {
-        int attackedPlayer = 0;
+        attackedPlayer = 1;
     }
 
-    Ship* attackingShip = nullptr;
+    std::cout << "It's your turn Player " << currentPlayer + 1 << "!" << std::endl;
 
-    while(attackingShip == nullptr){
-        attackingShipIndex = rand() % numberOfShips_;
-        attackingShip = players_[currentPlayer]->getShip(attackingShipIndex);
-    }
-
-
+    chooseShipForAttack(currentPlayer, attackingShipIndex, attackingShip);
+    std::cout << "You are attacking with: ";
     printPlayingShip(currentPlayer, attackingShipIndex);
+
+    chooseShipForAttack(attackedPlayer, attackedShipIndex, attackedShip);
+    std::cout << "You are aiming at: ";
+    printPlayingShip(attackedPlayer, attackedShipIndex);
+
+    aimAndShoot(attackingShip, attackedShip);
+    sinkShipIfStealthIsNegative(attackedShipIndex, attackedShip);
 }

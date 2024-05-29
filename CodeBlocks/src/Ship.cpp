@@ -13,3 +13,19 @@ Ship::~Ship(){}
 ShipType Ship::getShipType(){
     return type_;
 }
+
+int Ship::getStealth(){
+    return stealth_;
+}
+
+int Ship::getSize(){
+    return size_;
+}
+
+int Ship::getDamage(){
+    return damage_;
+}
+
+void Ship::beAttacked(Ship* attacker){
+    stealth_ -= attacker->getDamage();
+}

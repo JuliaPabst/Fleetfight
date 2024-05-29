@@ -12,8 +12,12 @@ class Ship {
 public:
     Ship(ShipType type, int stealth, int size, int damage, std::string specialName);
     virtual ~Ship();
-    virtual void special() const = 0;
     ShipType getShipType();
+    int getStealth();
+    int getSize();
+    int getDamage();
+    void beAttacked(Ship* attacker);
+    virtual void special() const = 0;
 
 private:
     ShipType type_;

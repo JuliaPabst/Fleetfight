@@ -22,8 +22,10 @@ private:
     void clearScreen();
     void printChosenShips();
     void printPlayingShip(int currentPlayer, int index);
+    void chooseShipForAttack(int player, int& shipIndex, Ship*& ship);
     void fight();
     void attack(int currentPlayer);
+    void aimAndShoot(Ship* attackingShip, Ship* attackedShip);
     std::vector<std::string> types_;
     std::vector<Player*> players_;
     int numberOfShips_;
