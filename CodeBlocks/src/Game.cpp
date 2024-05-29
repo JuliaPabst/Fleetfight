@@ -72,12 +72,12 @@ void Game::chooseShips(){
                         break;
                     }
                     case 2: {
-                            Cruiser* cruiser = new Cruiser();
-                            players_[i]->setShip(j, cruiser);
-                            break;
+                        Cruiser* cruiser = new Cruiser();
+                        players_[i]->setShip(j, cruiser);
+                        break;
                     }
                     case 3:{
-                         Hunter* hunter = new Hunter();
+                        Hunter* hunter = new Hunter();
                         players_[i]->setShip(j, hunter);
                         break;
                     }
@@ -98,4 +98,11 @@ void Game::printChosenShips(){
 
     players_[0]->printChosenShips(*this);
     players_[1]->printChosenShips(*this);
+}
+
+void Game::fight(){
+
+}
+
+void Game::attack(){
 }
